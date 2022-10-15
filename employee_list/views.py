@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic import ListView
 
-# Create your views here.
+from employee_list.models import Department
+
+
+class DepartmentListView(ListView):
+    model = Department
+    template_name = "employee_list/department_list.html"
