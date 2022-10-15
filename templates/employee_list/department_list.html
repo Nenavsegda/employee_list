@@ -1,27 +1,24 @@
 {% extends "employee_list/base.html" %}
 {% load mptt_tags %}
 
-{% block title %}Список подразделений{% endblock %}
-
 {% block content %}
-
 <div>
     <div>
-	<ul>
-	{% recursetree object_list %}
-	    <li>
-		<h3>{{node.name}}</h3>
-        {% for employee in node.employees.all %}
-        <ul>{{ employee }} - {{ employee.position }}</ul>
-        {% endfor %}
-		{% if not node.is_leaf_node %}
+        <ul>
+        {% recursetree object_list %}
+            <li>
+                <h3>{{node.name}}</h3>
+                {% for employee in node.employees.all %}
+                    <ul>{{ employee }} - {{ employee.position }}</ul>
+                {% endfor %}
+                {% if not node.is_leaf_node %}
                 <ul class="children">
                     {{ children }}
                 </ul>
-		{% endif %}
-	    </li>
-	{% endrecursetree %}
-	</ul>
+                {% endif %}
+            </li>
+        {% endrecursetree %}
+        </ul>
     </div>
 </div>
 {% endblock %}
