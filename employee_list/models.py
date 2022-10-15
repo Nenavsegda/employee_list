@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from mptt.models import MPTTModel, TreeForeignKey
 
 
@@ -21,14 +22,18 @@ class Department(MPTTModel):
     name = models.CharField(max_length=100, verbose_name='название подразделения')
     parent = TreeForeignKey('self', on_delete=models.PROTECT, null=True, blank=True, related_name='children',
                             db_index=True, verbose_name='подразделение выше')
+    slug = models.SlugField(blank=True)
 
     class MPTTMeta:
         order_insertion_by = ['name']
 
     class Meta:
-        unique_together = [['parent', 'name']]
+        unique_together = [['parent', 'slug']]
         verbose_name = 'Подразделение'
         verbose_name_plural = 'Подразделения'
+
+    def get_absolute_url(self):
+        return reverse('employee_by_departments', args=[str(self.slug)])
 
     def __str__(self):
         return self.name
