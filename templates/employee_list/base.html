@@ -1,11 +1,13 @@
 {% load static %}
+{% load mptt_tags %}
+{% load remove_new_lines%}
 
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Дерево отделов</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -33,7 +35,24 @@
 
         {% block content %}{% endblock %}
 
-    </div> <!-- /container -->
+    <ul id="myUL">
+        {% recursetree object_list %}
+            <li>
+                {% if node.is_leaf_node %}
+                    <br>
+                    <span class="leaf">{{ node.name }}</span>
+                {% else %}
+                    <br>
+                    <span class="caret parent"><h3>{{ node.name }}</h3></span>
+                    <br><br>
+                    <ul class="nested">
+                        {{ children }}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endrecursetree %}
+    </ul>
+
 
 
 
