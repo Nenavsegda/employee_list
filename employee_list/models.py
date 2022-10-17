@@ -28,7 +28,6 @@ class Department(MPTTModel):
         order_insertion_by = ['name']
 
     class Meta:
-        unique_together = [['parent', 'slug']]
         verbose_name = 'Подразделение'
         verbose_name_plural = 'Подразделения'
 
