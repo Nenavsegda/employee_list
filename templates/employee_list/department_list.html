@@ -9,7 +9,7 @@
             <li>
                 <h3>{{node.name}}</h3>
                 {% for employee in node.employees.all %}
-                    <ul>{{ employee }} - {{ employee.position }}</ul>
+                    <ol>{{ employee }} - {{ employee.position }}</ol>
                 {% endfor %}
                 {% if not node.is_leaf_node %}
                 <ul class="children">
