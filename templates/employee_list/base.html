@@ -38,17 +38,17 @@
     <ul id="myUL">
         {% recursetree object_list %}
             <li>
-                {% if node.is_leaf_node %}
-                    <br>
-                    <span class="leaf">{{ node.name }}</span>
-                {% else %}
-                    <br>
-                    <span class="caret parent"><h3>{{ node.name }}</h3></span>
-                    <br><br>
-                    <ul class="nested">
-                        {{ children }}
-                    </ul>
-                {% endif %}
+                <span class="caret parent"><h3>{{ node.name }}</h3></span>
+                <br>
+                {% for employee in node.employees.all %}
+                    <div class="nav-list">
+                    <ol>{{ employee }} - {{ employee.position }}</ol>
+                    </div>
+                {% endfor %}
+                <br>
+                <ul class="nested">
+                    {{ children }}
+                </ul>
             </li>
         {% endrecursetree %}
     </ul>
@@ -73,5 +73,6 @@
     <script src="/static/assets/js/bootstrap-carousel.js"></script>
     <script src="/static/assets/js/bootstrap-typeahead.js"></script>
 
+    </div>
   </body>
 </html>
