@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mptt',
     'django_mptt_admin',
-    'twitter_bootstrap',
     'employee_list',
 ]
 
@@ -88,6 +87,7 @@ DATABASES = {
     }
 }
 import django
+
 django.setup()
 
 # Password validation
