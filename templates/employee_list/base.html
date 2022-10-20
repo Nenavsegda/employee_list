@@ -1,6 +1,6 @@
 {% load static %}
 {% load mptt_tags %}
-{% load remove_new_lines%}
+
 
 <!DOCTYPE html>
 
@@ -40,17 +40,20 @@
             <li>
                 <span class="caret parent"><h3>{{ node.name }}</h3></span>
                 <br>
+                <br>
+                {% if not node.is_leaf_node %}
+                <ul class="nested">
                 {% for employee in node.employees.all %}
                     <div class="nav-list">
-                    <ol>{{ employee }} - {{ employee.position }}</ol>
+                    <h5>{{ employee }} - {{ employee.position }}</h5>
                     </div>
                 {% endfor %}
-                <br>
-                <ul class="nested">
                     {{ children }}
                 </ul>
+                {% endif %}
             </li>
         {% endrecursetree %}
+        </div>
     </ul>
 
 
