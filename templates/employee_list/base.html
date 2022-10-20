@@ -38,16 +38,33 @@
     <ul id="myUL">
         {% recursetree object_list %}
             <li>
-                <span class="caret parent"><h3>{{ node.name }}</h3></span>
                 <br>
+                <span class="caret parent"><h3>{{ node.name }}</h3></span>
                 <br>
                 {% if not node.is_leaf_node %}
                 <ul class="nested">
+                <table>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Должность</th>
+                        <th>Дата приема на работу</th>
+                        <th>Размер заработной платы</th>
+                    </tr>
+
                 {% for employee in node.employees.all %}
-                    <div class="nav-tabs">
-                    <h5>{{ employee }} - {{ employee.position }}</h5>
-                    </div>
+
+                    <h5>
+                        <tr>
+                            <td>{{ employee }}</td>
+                            <td>{{ employee.position }}</td>
+                            <td>{{ employee.date_of_employment }}</td>
+                            <td>{{ employee.salary }}</td>
+                        </tr>
+                    </h5>
+
                 {% endfor %}
+                </table>
+
                     {{ children }}
                 </ul>
                 {% endif %}

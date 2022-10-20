@@ -1491,10 +1491,19 @@ legend + .control-group {
 }
 
 table {
+  width: 100%;
   max-width: 100%;
   background-color: transparent;
   border-collapse: collapse;
   border-spacing: 0;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 
 .table {
