@@ -5,4 +5,4 @@ from employee_list.models import Department
 
 class DepartmentListView(ListView):
     model = Department
-    template_name = "employee_list/department_list.html"
+    template_name = "employee_list/base.html"
