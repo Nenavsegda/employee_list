@@ -44,7 +44,7 @@
                 {% if not node.is_leaf_node %}
                 <ul class="nested">
                 {% for employee in node.employees.all %}
-                    <div class="nav-list">
+                    <div class="nav-tabs">
                     <h5>{{ employee }} - {{ employee.position }}</h5>
                     </div>
                 {% endfor %}
