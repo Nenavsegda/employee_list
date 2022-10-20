@@ -21,7 +21,7 @@ def department_factory(parent=Department.objects.create(name=fake.word().capital
 
 def employee_factory(parent_qs):
     for parent in parent_qs:
-        for _ in range(400):
+        for _ in range(2000):
             salary = decimal.Decimal('%d.%d' % (random.randint(0,9999999),random.randint(0,99)))
             Employee.objects.create(
                 full_name=fake.name(),
