@@ -2,4 +2,4 @@ Django==4.1.*
 django-mptt==0.14.*
 django-mptt-admin==2.3.*
 faker==1.0.*
-psycopg==2.9.*
+psycopg2-binary==2.9.*
