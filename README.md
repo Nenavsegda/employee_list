@@ -58,7 +58,7 @@ pip install -r requirements.txt
 docker run --name some-postgres -e POSTGRES_PASSWORD=password -e POSTGRES_USER=root -e POSTGRES_DB=employee_list -p 5432:5432 -d postgres
 ```
 
-* Запускаем миграции и наполняем базу данных. Нужно дождаться завершения команда, "Сотрудники сохранены"
+* Запускаем миграции и наполняем базу данных. Нужно дождаться завершения команды "Сотрудники сохранены"
 
 ```bash
 python manage.py migrate
