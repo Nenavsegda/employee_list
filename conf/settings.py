@@ -80,10 +80,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'employee_list',
+        'HOST': '0.0.0.0',
+        'PORT': '5432',
         'USER': 'root',
         'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '5432',
     }
 }
 import django
