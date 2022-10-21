@@ -44,7 +44,7 @@ python3 -m venv employee_list-env
 * Активируем виртуальное окружение
 
 ```bash
- source employee_list/bin/activate
+ source employee_list-env/bin/activate
 ```
 * Устанавливаем зависимости
 
